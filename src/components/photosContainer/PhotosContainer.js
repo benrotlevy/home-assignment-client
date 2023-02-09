@@ -3,7 +3,7 @@ import { authContext } from "../../context/context";
 import { Photo } from "../photo/Photo";
 import "./photosContainer.css";
 
-export const PhotosContainer = () => {
+export const PhotosContainer = ({ error }) => {
     const { photosData } = useContext(authContext);
     const createPhotos = (num) => {
         const arr = [];
@@ -17,6 +17,8 @@ export const PhotosContainer = () => {
         }
         return arr;
     };
+
+    if (error) return <h1>server didn'n responde</h1>;
 
     return <div className="photosTable">{createPhotos(8)}</div>;
 };

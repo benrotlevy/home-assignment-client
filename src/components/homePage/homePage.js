@@ -8,7 +8,7 @@ import { PhotosContainer } from "../photosContainer/PhotosContainer.js";
 
 export const HomePage = () => {
     // at small aplications like that i dont need to use context, but its good for scalability - custom hooks etc.
-    const { photosData, setPhotosData } = useContext(authContext);
+    const { setPhotosData } = useContext(authContext);
     const [currentCategory, setCurrentCategory] = useState("work");
 
     const [error, setError] = useState(false);
@@ -16,6 +16,7 @@ export const HomePage = () => {
 
     const getData = async (category, pageNum, limit) => {
         try {
+            setError(false);
             setLoading(true);
             const { data } = await axios.get(
                 `https://home-assignment-msapps-server.onrender.com/pictures/${category}?page=${pageNum}&limit=${limit}`
@@ -44,11 +45,24 @@ export const HomePage = () => {
             </header>
             <main className="main">
                 {loading ? (
-                    <Spinner animation="grow" variant="secondary" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
+                    <div
+                        style={{
+                            margin: "5rem",
+                            display: "flex",
+                            alignItems: "flex-start",
+                            justifyContent: "center",
+                        }}
+                    >
+                        <Spinner
+                            animation="grow"
+                            variant="secondary"
+                            role="status"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    </div>
                 ) : (
-                    <PhotosContainer></PhotosContainer>
+                    <PhotosContainer error={error}></PhotosContainer>
                 )}
             </main>
         </>

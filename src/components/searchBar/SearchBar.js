@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import "./searchBar.css";
 
 export const SearchBar = ({ getData, setCurrentCategory, currentCategory }) => {
-    const { photosData, setPhotosData } = useContext(authContext);
+    const { photosData } = useContext(authContext);
     const [inputValue, setInputValue] = useState("");
 
     const sendRequest = () => {

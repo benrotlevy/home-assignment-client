@@ -4,13 +4,17 @@ import Modal from "react-bootstrap/Modal";
 import "./photo.css";
 
 export const Photo = ({ photo }) => {
-    const [isFlipped, setIsFlipped] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <div className="imageContainer" onClick={() => setIsFlipped(true)}>
-                <img src={photo.webformatURL} className="image" />
+            <div className="imageContainer" onClick={() => setShowModal(true)}>
+                <img
+                    src={photo.webformatURL}
+                    alt={photo.type}
+                    className="image"
+                />
             </div>
-            <Modal show={isFlipped} onHide={() => setIsFlipped(false)}>
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Tags : {photo.tags}</Modal.Title>
                 </Modal.Header>
@@ -24,7 +28,7 @@ export const Photo = ({ photo }) => {
                 <Modal.Footer>
                     <Button
                         variant="secondary"
-                        onClick={() => setIsFlipped(false)}
+                        onClick={() => setShowModal(false)}
                     >
                         Close
                     </Button>
