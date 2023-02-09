@@ -1,5 +1,5 @@
 input {
-    min-width:14rem;
+    min-width: 14rem;
     border-radius: 10px;
 }
 
@@ -7,4 +7,17 @@ input {
     display: flex;
     justify-content: space-between;
     width: 95vw;
+}
+
+@media (max-width: 650px) {
+    input {
+        max-width: 10rem;
+        min-width: 5rem;
+    }
+
+    .navBar {
+        display: flex;
+        justify-content: space-between;
+        width: 95vw;
+    }
 }
