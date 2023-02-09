@@ -25,6 +25,7 @@ export const HomePage = () => {
             console.log(data);
             setPhotosData(data);
         } catch (error) {
+            console.log(error);
             setLoading(false);
             setError(true);
         }

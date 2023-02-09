@@ -9,7 +9,7 @@ export const SearchBar = ({ getData, setCurrentCategory, currentCategory }) => {
     const [inputValue, setInputValue] = useState("");
 
     const sendRequest = () => {
-        setCurrentCategory(inputValue);
+        if (inputValue) setCurrentCategory(inputValue);
     };
 
     const handleEnterKey = (e) => {

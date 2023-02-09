@@ -19,6 +19,11 @@ export const Photo = ({ photo }) => {
                     <Modal.Title>Tags : {photo.tags}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <img
+                        src={photo.webformatURL}
+                        alt={photo.type}
+                        className="image"
+                    />
                     Downloads : {photo.downloads} <br />
                     Views : {photo.views} <br />
                     Likes : {photo.likes} <br />
