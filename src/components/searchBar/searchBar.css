@@ -1,0 +1,10 @@
+input {
+    min-width:14rem;
+    border-radius: 10px;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+}
