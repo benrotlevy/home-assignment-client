@@ -6,6 +6,11 @@ img {
     height: auto;
 }
 
+img:hover {
+    border: 2px solid gray;
+    cursor: pointer;
+}
+
 .flip-card-back {
     background-color: #2980b9;
     color: white;
